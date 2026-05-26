@@ -31,7 +31,7 @@ const TENSES = [
       durfen:  ["darf","darfst","darf","dürfen","dürft","dürfen"],
       sollen:  ["soll","sollst","soll","sollen","sollt","sollen"],
       mogen:   ["mag","magst","mag","mögen","mögt","mögen"],
-      mochten: ["möchte","möchtest","möchte","möchten","möchtet","möchten"],
+      mochten: ["-","-","-","-","-","-"],
     },
     examplesMain: [
       { de: "Ich bin müde.", ru: "Я устал." },
