@@ -279,6 +279,28 @@ export default function App() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#f9f9f7", color: "#111", fontFamily: "system-ui, sans-serif", padding: "2rem 1rem" }}>
+      {/* Стили для постоянно видимого горизонтального скроллбара в webkit-браузерах */}
+      <style>{`
+        .table-scroll::-webkit-scrollbar {
+          height: 8px; /* высота горизонтального ползунка */
+          display: block; /* всегда показывать */
+        }
+        .table-scroll::-webkit-scrollbar-track {
+          background: #f0f0ee; /* цвет дорожки скроллбара */
+          border-radius: 4px;
+        }
+        .table-scroll::-webkit-scrollbar-thumb {
+          background: #c8c8c4; /* цвет ползунка */
+          border-radius: 4px;
+        }
+        .table-scroll::-webkit-scrollbar-thumb:hover {
+          background: #a0a09c; /* цвет ползунка при наведении */
+        }
+        .table-scroll {
+          scrollbar-width: thin; /* Firefox: тонкий скроллбар */
+          scrollbar-color: #c8c8c4 #f0f0ee; /* Firefox: цвет ползунка и дорожки */
+        }
+      `}</style>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
 
         {/* Header */}
@@ -363,7 +385,8 @@ export default function App() {
 
         {/* Table */}
         <div style={{ border: "1px solid #e5e5e5", borderRadius: 8, overflow: "hidden", marginBottom: "1.5rem", background: "#fff" }}>
-          <div style={{ overflowX: "scroll", scrollbarGutter: "stable" }}>
+          {/* className="table-scroll" — применяет CSS для постоянно видимого скроллбара */}
+          <div className="table-scroll" style={{ overflowX: "scroll", scrollbarGutter: "stable" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
               <thead>
                 <tr style={{ background: "#f4f4f2", borderBottom: "1px solid #e5e5e5" }}>
