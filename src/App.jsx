@@ -363,7 +363,7 @@ export default function App() {
 
         {/* Table */}
         <div style={{ border: "1px solid #e5e5e5", borderRadius: 8, overflow: "hidden", marginBottom: "1.5rem", background: "#fff" }}>
-          <div style={{ overflowX: "auto" }}>
+          <div style={{ overflowX: "scroll", scrollbarGutter: "stable" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
               <thead>
                 <tr style={{ background: "#f4f4f2", borderBottom: "1px solid #e5e5e5" }}>
