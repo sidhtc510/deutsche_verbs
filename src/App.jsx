@@ -9,16 +9,14 @@ const MAIN_VERBS = [
 ];
 
 const MODAL_VERBS = [
-  { key: "wollen",  label: "wollen",  ru: "хотеть",        color: "#b91c1c" },
-  { key: "konnen",  label: "können",  ru: "мочь/уметь",    color: "#0369a1" },
+  { key: "wollen",  label: "wollen",  ru: "хотеть",         color: "#b91c1c" },
+  { key: "konnen",  label: "können",  ru: "мочь/уметь",     color: "#0369a1" },
   { key: "mussen",  label: "müssen",  ru: "должен (нужно)", color: "#b45309" },
   { key: "durfen",  label: "dürfen",  ru: "можно/нельзя",   color: "#166534" },
   { key: "sollen",  label: "sollen",  ru: "должен (велят)", color: "#7e22ce" },
   { key: "mogen",   label: "mögen",   ru: "нравиться",      color: "#be123c" },
   { key: "mochten", label: "möchten", ru: "хотел бы (вежл)", color: "#0f766e" },
 ];
-
-const ALL_VERBS = [...MAIN_VERBS, ...MODAL_VERBS];
 
 const TENSES = [
   {
@@ -35,12 +33,19 @@ const TENSES = [
       mogen:   ["mag","magst","mag","mögen","mögt","mögen"],
       mochten: ["möchte","möchtest","möchte","möchten","möchtet","möchten"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich bin müde.", ru: "Я устал." },
       { de: "Er wird Arzt.", ru: "Он становится врачом." },
-      { de: "Sie will Kaffee trinken.", ru: "Она хочет выпить кофе." },
-      { de: "Ich kann Deutsch sprechen.", ru: "Я умею говорить по-немецки." },
-      { de: "Du musst jetzt schlafen.", ru: "Тебе нужно спать сейчас." },
+      { de: "Wir haben Zeit.", ru: "У нас есть время." },
+      { de: "Sie ist zu Hause.", ru: "Она дома." },
+      { de: "Das wird besser.", ru: "Это становится лучше." },
+    ],
+    examplesModal: [
+      { de: "Ich will nach Berlin fahren.", ru: "Я хочу поехать в Берлин." },
+      { de: "Kannst du mir helfen?", ru: "Ты можешь мне помочь?" },
+      { de: "Er muss heute arbeiten.", ru: "Ему нужно работать сегодня." },
+      { de: "Hier darf man nicht rauchen.", ru: "Здесь нельзя курить." },
+      { de: "Ich möchte einen Kaffee, bitte.", ru: "Мне кофе, пожалуйста." },
     ],
   },
   {
@@ -57,12 +62,19 @@ const TENSES = [
       mogen:   ["mochte","mochtest","mochte","mochten","mochtet","mochten"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich war gestern zu Hause.", ru: "Вчера я был дома." },
       { de: "Er wurde Lehrer.", ru: "Он стал учителем." },
+      { de: "Wir hatten keine Zeit.", ru: "У нас не было времени." },
+      { de: "Das Wetter war schön.", ru: "Погода была хорошей." },
+      { de: "Sie hatte Angst.", ru: "Она боялась." },
+    ],
+    examplesModal: [
       { de: "Sie wollte nicht kommen.", ru: "Она не хотела приходить." },
       { de: "Ich konnte nicht schlafen.", ru: "Я не мог спать." },
       { de: "Er musste früh aufstehen.", ru: "Ему нужно было рано вставать." },
+      { de: "Wir durften nicht ausgehen.", ru: "Нам нельзя было выходить." },
+      { de: "Er sollte um 8 Uhr da sein.", ru: "Он должен был быть там в 8." },
     ],
   },
   {
@@ -79,12 +91,19 @@ const TENSES = [
       mogen:   ["habe gemocht","hast gemocht","hat gemocht","haben gemocht","habt gemocht","haben gemocht"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich bin in Berlin gewesen.", ru: "Я был в Берлине." },
       { de: "Er ist Arzt geworden.", ru: "Он стал врачом." },
+      { de: "Wir haben Glück gehabt.", ru: "Нам повезло." },
+      { de: "Sie ist nach Hause gegangen.", ru: "Она пошла домой." },
+      { de: "Hast du das gewusst?", ru: "Ты это знал?" },
+    ],
+    examplesModal: [
       { de: "Sie hat das nicht gewollt.", ru: "Она этого не хотела." },
       { de: "Ich habe das nicht gekonnt.", ru: "Я не смог этого сделать." },
-      { de: "Wir haben Glück gehabt.", ru: "Нам повезло." },
+      { de: "Er hat lange arbeiten müssen.", ru: "Ему пришлось долго работать." },
+      { de: "Wir haben nicht gehen dürfen.", ru: "Нам нельзя было идти." },
+      { de: "Ich habe das gemocht.", ru: "Мне это нравилось." },
     ],
   },
   {
@@ -101,12 +120,19 @@ const TENSES = [
       mogen:   ["hatte gemocht","hattest gemocht","hatte gemocht","hatten gemocht","hattet gemocht","hatten gemocht"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich war schon weg, als er kam.", ru: "Я уже ушёл, когда он пришёл." },
-      { de: "Sie hatte das Buch gelesen, bevor sie schlief.", ru: "Она прочитала книгу до того, как уснула." },
       { de: "Er war Arzt geworden, bevor der Krieg begann.", ru: "Он стал врачом до начала войны." },
       { de: "Wir hatten keine Zeit gehabt.", ru: "У нас не было времени." },
+      { de: "Sie hatte Angst gehabt.", ru: "Она испытывала страх до этого." },
+      { de: "Das Wetter war gut gewesen.", ru: "Погода была хорошей до этого." },
+    ],
+    examplesModal: [
       { de: "Ich hatte das nicht gewollt.", ru: "Я этого не хотел (к тому моменту)." },
+      { de: "Er hatte nicht schlafen können.", ru: "Он не мог спать (до того)." },
+      { de: "Sie hatte früh aufstehen müssen.", ru: "Ей пришлось рано встать (до этого)." },
+      { de: "Wir hatten nicht ausgehen dürfen.", ru: "Нам нельзя было выходить." },
+      { de: "Er hatte das wissen sollen.", ru: "Он должен был это знать." },
     ],
   },
   {
@@ -123,12 +149,19 @@ const TENSES = [
       mogen:   ["werde mögen","wirst mögen","wird mögen","werden mögen","werdet mögen","werden mögen"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich werde morgen zu Hause sein.", ru: "Завтра я буду дома." },
       { de: "Er wird Erfolg haben.", ru: "У него будет успех." },
-      { de: "Sie wird das wollen.", ru: "Она будет этого хотеть." },
+      { de: "Sie wird Ärztin werden.", ru: "Она станет врачом." },
+      { de: "Das wird gut werden.", ru: "Это будет хорошо." },
+      { de: "Wir werden Zeit haben.", ru: "У нас будет время." },
+    ],
+    examplesModal: [
       { de: "Ich werde das können.", ru: "Я смогу это сделать." },
       { de: "Du wirst früh aufstehen müssen.", ru: "Тебе придётся рано вставать." },
+      { de: "Er wird das wollen.", ru: "Он будет этого хотеть." },
+      { de: "Wir werden nicht dürfen.", ru: "Нам нельзя будет." },
+      { de: "Sie wird es wissen müssen.", ru: "Ей нужно будет это знать." },
     ],
   },
   {
@@ -145,12 +178,19 @@ const TENSES = [
       mogen:   ["möchte","möchtest","möchte","möchten","möchtet","möchten"],
       mochten: ["möchte","möchtest","möchte","möchten","möchtet","möchten"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich wäre gern in Urlaub.", ru: "Я бы с удовольствием был в отпуске." },
-      { de: "Er würde gern kommen.", ru: "Он бы с радостью пришёл." },
+      { de: "Er hätte mehr Zeit gebraucht.", ru: "Ему нужно было больше времени." },
+      { de: "Das wäre schön!", ru: "Это было бы прекрасно!" },
+      { de: "Wären Sie so nett?", ru: "Не будете ли вы так любезны?" },
+      { de: "Ich hätte das nie gedacht.", ru: "Я бы никогда не подумал об этом." },
+    ],
+    examplesModal: [
       { de: "Ich könnte dir helfen.", ru: "Я мог бы тебе помочь." },
       { de: "Du müsstest mehr schlafen.", ru: "Тебе следовало бы больше спать." },
-      { de: "Das wäre schön!", ru: "Это было бы прекрасно!" },
+      { de: "Er dürfte das nicht wissen.", ru: "Ему, вероятно, не следует это знать." },
+      { de: "Wir sollten früher gehen.", ru: "Нам следовало бы уйти раньше." },
+      { de: "Möchtest du Kaffee?", ru: "Хотел бы ты кофе?" },
     ],
   },
   {
@@ -167,12 +207,19 @@ const TENSES = [
       mogen:   ["würde mögen","würdest mögen","würde mögen","würden mögen","würdet mögen","würden mögen"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Ich würde gern reisen.", ru: "Я бы с удовольствием путешествовал." },
       { de: "Würdest du mir helfen?", ru: "Ты бы мне помог?" },
       { de: "Er würde das nie sagen.", ru: "Он бы этого никогда не сказал." },
-      { de: "Ich würde gern können.", ru: "Я бы хотел уметь." },
       { de: "Wir würden gern bleiben.", ru: "Мы бы с радостью остались." },
+      { de: "Sie würde sofort kommen.", ru: "Она бы пришла сразу." },
+    ],
+    examplesModal: [
+      { de: "Ich würde gern können.", ru: "Я бы хотел уметь." },
+      { de: "Würdest du das wollen?", ru: "Ты бы этого хотел?" },
+      { de: "Er würde müssen, wenn nötig.", ru: "Ему пришлось бы, если нужно." },
+      { de: "Wir würden nicht dürfen.", ru: "Нам бы нельзя было." },
+      { de: "Sie würden es sollen.", ru: "Им следовало бы это сделать." },
     ],
   },
   {
@@ -190,13 +237,14 @@ const TENSES = [
       mogen:   ["—","—","—","—","—","—"],
       mochten: ["—","—","—","—","—","—"],
     },
-    examples: [
+    examplesMain: [
       { de: "Sei ruhig!", ru: "Будь тихо!" },
       { de: "Seid pünktlich!", ru: "Будьте пунктуальны!" },
-      { de: "Seien Sie bitte geduldig!", ru: "Будьте, пожалуйста, терпеливы! (вежливо)" },
+      { de: "Seien Sie bitte geduldig!", ru: "Будьте терпеливы! (вежливо)" },
       { de: "Hab Geduld!", ru: "Имей терпение!" },
       { de: "Werde besser!", ru: "Становись лучше!" },
     ],
+    examplesModal: null,
   },
 ];
 
@@ -227,6 +275,7 @@ export default function App() {
   const [verbGroup, setVerbGroup] = useState("main");
   const tense = TENSES.find((t) => t.key === activeTense);
   const verbs = verbGroup === "main" ? MAIN_VERBS : MODAL_VERBS;
+  const examples = verbGroup === "main" ? tense.examplesMain : tense.examplesModal;
 
   return (
     <div style={{ minHeight: "100vh", background: "#f9f9f7", color: "#111", fontFamily: "system-ui, sans-serif", padding: "2rem 1rem" }}>
@@ -349,20 +398,27 @@ export default function App() {
 
         {/* Examples */}
         <p style={{ margin: "0 0 10px", fontSize: 12, color: "#666", letterSpacing: "0.08em" }}>
-          Примеры · {tense.label}
+          Примеры · {tense.label} · {verbGroup === "main" ? "sein / werden / haben" : "Модальные"}
         </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: "2.5rem" }}>
-          {tense.examples.map((ex, i) => (
-            <div key={i} style={{
-              display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",
-              padding: "10px 14px", background: "#fff", border: "1px solid #e5e5e5",
-              borderRadius: 6, alignItems: "center",
-            }}>
-              <div style={{ fontSize: 13, color: "#111" }}>{ex.de}</div>
-              <div style={{ fontSize: 13, color: "#555", borderLeft: "1px solid #eee", paddingLeft: 14 }}>{ex.ru}</div>
-            </div>
-          ))}
-        </div>
+
+        {examples === null ? (
+          <div style={{ padding: "14px 18px", background: "#f4f4f2", border: "1px solid #e5e5e5", borderRadius: 6, fontSize: 13, color: "#888", marginBottom: "2.5rem" }}>
+            У модальных глаголов нет формы Imperativ. Повелительное наклонение образуют только sein, werden и haben.
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: "2.5rem" }}>
+            {examples.map((ex, i) => (
+              <div key={i} style={{
+                display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",
+                padding: "10px 14px", background: "#fff", border: "1px solid #e5e5e5",
+                borderRadius: 6, alignItems: "center",
+              }}>
+                <div style={{ fontSize: 13, color: "#111" }}>{ex.de}</div>
+                <div style={{ fontSize: 13, color: "#555", borderLeft: "1px solid #eee", paddingLeft: 14 }}>{ex.ru}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Cheat sheet */}
         <div style={{ borderTop: "1px solid #e5e5e5", paddingTop: "2rem" }}>
